@@ -1,0 +1,149 @@
+/* =====================================================
+   Everlasting Community — style.css
+   Daftar isi:
+   1. Variabel   2. Dasar   3. Layout (sidebar, topbar)
+   4. Komponen   5. Halaman (banner, grafik, komunitas)
+   ===================================================== */
+
+/* 1. VARIABEL ------------------------------------------------ */
+:root {
+  --red: #E53935;
+  --red-dark: #B71C1C;
+  --orange: #FF7A00;
+  --yellow: #FFC247;
+  --black: #171717;
+  --gray: #F4F4F4;
+  --cream: #FFF6EE;
+  --line: #E6E0DA;
+  --muted: #6c6c72;
+  --success: #1e9e5a;
+  --gradient: linear-gradient(135deg, var(--red), var(--orange));
+  --sidebar-width: 250px;
+  --radius: .9rem;
+}
+
+/* 2. DASAR --------------------------------------------------- */
+html { scroll-behavior: smooth; }
+body { background: var(--gray); color: var(--black); font-family: 'Inter', sans-serif; }
+section { scroll-margin-top: 84px; }
+
+h1, h2, h3, h4, h5, .heading {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+.text-muted-2 { color: var(--muted); }
+.text-up { color: var(--success); }
+.text-down { color: var(--red); }
+
+/* 3. LAYOUT -------------------------------------------------- */
+/* Sidebar: tetap di kiri pada desktop, offcanvas pada mobile */
+.sidebar { width: var(--sidebar-width); background: var(--black); color: #fff; }
+@media (min-width: 992px) {
+  .sidebar { position: fixed; inset: 0 auto 0 0; visibility: visible !important; transform: none !important; }
+  .main { margin-left: var(--sidebar-width); }
+}
+.brand { display: flex; align-items: center; gap: .75rem; padding: 1.1rem 1rem; border-bottom: 3px solid var(--red); }
+.brand img { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--orange); object-fit: cover; object-position: 50% 45%; }
+.brand-name { font-family: 'Oswald', sans-serif; font-weight: 700; line-height: 1.05; text-transform: uppercase; }
+.brand-name small { display: block; color: var(--yellow); font-size: .7rem; letter-spacing: .12em; }
+
+.sidebar .nav-link { padding: .7rem 1.1rem; border-left: 4px solid transparent; color: #cfcfcf; font-weight: 500; }
+.sidebar .nav-link i { margin-right: .65rem; }
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active { background: rgba(255, 122, 0, .15); border-left-color: var(--orange); color: #fff; }
+.sidebar-footer { margin-top: auto; padding: 1rem; color: #888; font-size: .75rem; }
+.checker { height: 14px; background: repeating-conic-gradient(var(--orange) 0 25%, transparent 0 50%) 0 0 / 14px 14px; }
+
+.topbar { position: sticky; top: 0; z-index: 1020; background: #fff; border-bottom: 1px solid var(--line); }
+.topbar h1 { margin: 0; font-size: 1.4rem; }
+
+/* 4. KOMPONEN ------------------------------------------------ */
+.avatar {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--gradient); color: #fff;
+  font-family: 'Oswald', sans-serif; font-weight: 700;
+}
+.avatar-sm { width: 34px; height: 34px; font-size: .85rem; }
+
+.btn-gradient { border: 0; background: var(--gradient); color: #fff; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.btn-gradient:hover { color: #fff; filter: brightness(1.08); }
+
+.tag {
+  display: inline-block; padding: .2rem 1.1rem .2rem .7rem;
+  background: var(--gradient); color: #fff;
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+  font-family: 'Oswald', sans-serif; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+}
+
+.section-title { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+.section-title h2 { margin: 0; font-size: 1.6rem; }
+.section-title::after { content: ""; flex: 1; height: 3px; background: repeating-linear-gradient(115deg, var(--red) 0 8px, transparent 8px 14px); }
+
+.card { border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0, 0, 0, .05); }
+.card-header { border-bottom: 3px solid var(--orange); background: #fff; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+
+/* Kartu statistik */
+.stat { border-top: 4px solid var(--red); }
+.stat-icon { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: .7rem; background: var(--cream); color: var(--red); font-size: 1.4rem; }
+.stat-number { font-family: 'Oswald', sans-serif; font-size: 1.9rem; font-weight: 700; line-height: 1; }
+
+/* Tabel */
+.table thead th { border: 0; background: var(--black); color: #fff; font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.table td { vertical-align: middle; }
+.rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: .4rem; background: var(--black); color: #fff; font-family: 'Oswald', sans-serif; }
+.rank-1 { background: var(--gradient); }
+.rank-2 { background: #8a8a8a; }
+.rank-3 { background: #b8743a; }
+
+.progress { height: 8px; background: #eee; }
+.progress-bar { background: var(--gradient); }
+
+/* Tab */
+.nav-tabs .nav-link { color: var(--black); font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+.nav-tabs .nav-link.active { color: var(--red); }
+.nav-pills .nav-link { color: var(--black); font-weight: 500; }
+.nav-pills .nav-link.active { background: var(--gradient); color: #fff; }
+
+/* Kartu anggota */
+.member-card { height: 100%; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: border-color .15s; }
+.member-card:hover { border-color: var(--orange); }
+.member-rank { color: var(--orange); font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; }
+.member-gain { color: var(--success); font-size: 1.35rem; font-weight: 600; }
+.member-stats { display: grid; grid-template-columns: 1fr auto; gap: .15rem .6rem; font-size: .82rem; }
+.member-stats dt { color: var(--muted); font-weight: 400; }
+.member-stats dd { margin: 0; font-weight: 500; text-align: right; }
+
+/* Timeline aktivitas */
+.timeline { margin: 0; padding: 0; list-style: none; }
+.timeline li { position: relative; padding: .7rem 0 .7rem 1.2rem; border-left: 3px solid var(--orange); }
+.timeline li::before { content: ""; position: absolute; top: 1.05rem; left: -8px; width: 13px; height: 13px; background: var(--red); transform: rotate(45deg); }
+
+/* Form */
+.form-control:focus, .form-select:focus { border-color: var(--orange); box-shadow: 0 0 0 .2rem rgba(255, 122, 0, .2); }
+
+/* 5. HALAMAN ------------------------------------------------- */
+/* Banner dashboard */
+.banner { position: relative; overflow: hidden; border-radius: var(--radius); background: var(--red-dark); color: #fff; }
+.banner::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(255, 255, 255, .06) 0 14px, transparent 14px 28px); }
+.banner::after { content: ""; position: absolute; top: -20px; right: -60px; width: 260px; height: 260px; background: var(--gradient); opacity: .85; transform: rotate(25deg); }
+.banner > * { position: relative; z-index: 1; }
+.banner h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.banner img { width: 100%; max-width: 300px; border: 3px solid #fff; border-radius: .75rem; box-shadow: 0 8px 24px rgba(0, 0, 0, .35); }
+
+/* Grafik SVG */
+.chart { width: 100%; height: auto; }
+.chart-grid { stroke: #ece6df; }
+.chart text { fill: var(--muted); font-size: 11px; }
+.chart-area { fill: rgba(255, 122, 0, .14); }
+.chart-line { fill: none; stroke: var(--orange); stroke-width: 3; stroke-linejoin: round; }
+.chart circle { fill: #fff; stroke: var(--red); stroke-width: 2; }
+
+/* Ajakan bergabung komunitas */
+.community { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem; border: 2px dashed var(--line); border-radius: 1.25rem; background: #fff; text-align: center; }
+.community img { width: 100%; max-width: 360px; border-radius: 1rem; box-shadow: 0 8px 24px rgba(0, 0, 0, .15); }
+.community .btn { padding: .7rem 1.6rem; border-radius: .8rem; }
+.btn-discord { border: 0; background: var(--black); color: #fff; font-weight: 600; }
+.btn-discord:hover { background: #333; color: #fff; }
