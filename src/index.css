@@ -1,0 +1,75 @@
+/* =====================================================
+   Everlasting Community — index.css
+   1. Variabel  2. Dasar  3. Komponen  4. Halaman
+   ===================================================== */
+
+/* 1. VARIABEL */
+:root {
+  --red: #E53935;
+  --red-dark: #B71C1C;
+  --orange: #FF7A00;
+  --yellow: #FFC247;
+  --black: #171717;
+  --gray: #F4F4F4;
+  --cream: #FFF6EE;
+  --line: #E6E0DA;
+  --muted: #6c6c72;
+  --success: #1e9e5a;
+  --gradient: linear-gradient(135deg, var(--red), var(--orange));
+  --radius: .9rem;
+}
+
+/* 2. DASAR */
+html { scroll-behavior: auto; } /* smooth scroll ditangani jQuery */
+body { background: var(--gray); color: var(--black); font-family: 'Inter', sans-serif; }
+h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.text-muted-2 { color: var(--muted); }
+.text-up { color: var(--success); }
+
+/* 3. KOMPONEN */
+.app-navbar { background: var(--black); border-bottom: 3px solid var(--red); }
+.brand img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--orange); object-fit: cover; object-position: 50% 45%; }
+.brand span { font-family: 'Oswald', sans-serif; font-weight: 700; line-height: 1.05; text-transform: uppercase; }
+.brand small { display: block; color: var(--yellow); font-size: .65rem; letter-spacing: .12em; }
+.app-navbar .nav-link { color: #cfcfcf; }
+.app-navbar .nav-link:hover { color: var(--orange); }
+
+.btn-gradient { border: 0; background: var(--gradient); color: #fff; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.btn-gradient:hover { color: #fff; filter: brightness(1.08); }
+.btn-discord { border: 0; background: var(--black); color: #fff; font-weight: 600; }
+.btn-discord:hover { background: #333; color: #fff; }
+.form-control:focus, .form-select:focus { border-color: var(--orange); box-shadow: 0 0 0 .2rem rgba(255, 122, 0, .2); }
+
+.tag { display: inline-block; padding: .2rem 1.1rem .2rem .7rem; background: var(--gradient); color: #fff; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-family: 'Oswald', sans-serif; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+.section-title { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+.section-title h2 { margin: 0; font-size: 1.6rem; }
+.section-title::after { content: ""; flex: 1; height: 3px; background: repeating-linear-gradient(115deg, var(--red) 0 8px, transparent 8px 14px); order: 1; }
+.section-title .badge { order: 2; }
+
+.card { border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0, 0, 0, .05); }
+.stat { border-top: 4px solid var(--red); }
+.stat-icon { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: .7rem; background: var(--cream); color: var(--red); font-size: 1.4rem; }
+.stat-number { font-family: 'Oswald', sans-serif; font-size: 1.7rem; font-weight: 700; line-height: 1; }
+
+.avatar { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--gradient); color: #fff; font-family: 'Oswald', sans-serif; font-weight: 700; }
+.member-card { height: 100%; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: border-color .15s; }
+.member-card:hover { border-color: var(--orange); }
+.member-stats { display: grid; grid-template-columns: 1fr auto; gap: .2rem .6rem; font-size: .9rem; }
+.member-stats dt { color: var(--muted); font-weight: 400; }
+.member-stats dd { margin: 0; font-weight: 600; text-align: right; }
+
+.kosong { padding: 2rem; border: 2px dashed var(--line); border-radius: var(--radius); background: #fff; color: var(--muted); text-align: center; font-weight: 500; }
+
+/* 4. HALAMAN */
+.banner { position: relative; overflow: hidden; border-radius: var(--radius); background: var(--red-dark); color: #fff; }
+.banner::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(255, 255, 255, .06) 0 14px, transparent 14px 28px); }
+.banner::after { content: ""; position: absolute; top: -20px; right: -60px; width: 260px; height: 260px; background: var(--gradient); opacity: .85; transform: rotate(25deg); }
+.banner > * { position: relative; z-index: 1; }
+.banner h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.banner img { width: 100%; max-width: 300px; border: 3px solid #fff; border-radius: .75rem; box-shadow: 0 8px 24px rgba(0, 0, 0, .35); }
+
+.community { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem; border: 2px dashed var(--line); border-radius: 1.25rem; background: #fff; text-align: center; }
+.community img { width: 100%; max-width: 360px; border-radius: 1rem; box-shadow: 0 8px 24px rgba(0, 0, 0, .15); }
+.community .btn { padding: .7rem 1.6rem; border-radius: .8rem; }
+
+.ke-atas { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1030; width: 46px; height: 46px; border-radius: 50%; }
